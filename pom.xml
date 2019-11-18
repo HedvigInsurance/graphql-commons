@@ -28,9 +28,9 @@
 
     <distributionManagement>
         <repository>
-            <id>bintray-hedvig-hedvig-java</id>
-            <name>hedvig-hedvig-java</name>
-            <url>https://api.bintray.com/maven/hedvig/hedvig-java/graphql-commons/;publish=1</url>
+            <id>github</id>
+            <name>GitHub HedvigInsurance Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/HedvigInsurance/graphql-commons</url>
         </repository>
     </distributionManagement>
 
@@ -106,40 +106,6 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
-                <executions>
-                    <execution>
-                        <id>compile</id>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>compile</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>testCompile</id>
-                        <phase>test-compile</phase>
-                        <goals>
-                            <goal>testCompile</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <release>9</release> <!-- &lt;!&ndash;<release>10</release>&ndash;&gt;-->
-                </configuration>
-            </plugin>
-            <plugin>
-                <artifactId>maven-source-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <phase>deploy</phase>
-                        <goals><goal>jar-no-fork</goal></goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-antrun-plugin</artifactId>
                 <version>1.7</version>
                 <executions>
@@ -181,6 +147,4 @@
             </plugin>
         </plugins>
     </build>
-
-
 </project>
