@@ -1,12 +1,12 @@
 package com.hedvig.scalars
 
-import graphql.schema.CoercingParseLiteralException
 import graphql.language.StringValue
-import java.time.ZonedDateTime
+import graphql.schema.Coercing
+import graphql.schema.CoercingParseLiteralException
 import graphql.schema.CoercingParseValueException
 import graphql.schema.CoercingSerializeException
-import graphql.schema.Coercing
 import graphql.schema.GraphQLScalarType
+import java.time.ZonedDateTime
 import org.springframework.stereotype.Component
 
 @Component
@@ -34,7 +34,6 @@ class ZonedDateTimeScalar : GraphQLScalarType("ZonedDateTime", "A string-represe
         } catch (e: Exception) {
             throw CoercingParseValueException("Could not parse value", e)
         }
-
     }
 
     @Throws(CoercingParseLiteralException::class)
@@ -44,6 +43,5 @@ class ZonedDateTimeScalar : GraphQLScalarType("ZonedDateTime", "A string-represe
         } catch (e: Exception) {
             throw CoercingParseLiteralException("Could not parse literal", e)
         }
-
     }
 })

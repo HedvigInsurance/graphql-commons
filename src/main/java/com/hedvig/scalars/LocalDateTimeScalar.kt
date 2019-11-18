@@ -1,12 +1,12 @@
 package com.hedvig.scalars
 
-import java.time.LocalDateTime
+import graphql.schema.Coercing
 import graphql.schema.CoercingParseLiteralException
 import graphql.schema.CoercingParseValueException
 import graphql.schema.CoercingSerializeException
-import graphql.schema.Coercing
-import java.time.format.DateTimeFormatter
 import graphql.schema.GraphQLScalarType
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import org.springframework.stereotype.Component
 
 @Component

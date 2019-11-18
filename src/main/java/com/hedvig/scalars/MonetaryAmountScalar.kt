@@ -1,21 +1,19 @@
 package com.hedvig.scalars
 
 import com.fasterxml.jackson.core.type.TypeReference
-import graphql.schema.CoercingParseValueException
-import graphql.language.StringValue
-import graphql.language.ObjectField
-import java.math.BigDecimal
-import graphql.schema.CoercingParseLiteralException
-import javax.money.MonetaryAmount
-import graphql.schema.CoercingSerializeException
-import graphql.schema.Coercing
 import com.fasterxml.jackson.databind.ObjectMapper
 import graphql.language.FloatValue
 import graphql.language.ObjectValue
+import graphql.language.StringValue
+import graphql.schema.Coercing
+import graphql.schema.CoercingParseLiteralException
+import graphql.schema.CoercingParseValueException
+import graphql.schema.CoercingSerializeException
 import graphql.schema.GraphQLScalarType
+import java.math.BigDecimal
+import javax.money.MonetaryAmount
 import org.javamoney.moneta.Money
 import org.springframework.stereotype.Component
-
 
 @Component
 class MonetaryAmountScalar(objectMapper: ObjectMapper) : GraphQLScalarType("MonetaryAmount", "An object representation of `javax.money.MonetaryAmount`", object : Coercing<MonetaryAmount, Map<String, Any>> {
@@ -25,12 +23,10 @@ class MonetaryAmountScalar(objectMapper: ObjectMapper) : GraphQLScalarType("Mone
         try {
             return objectMapper.convertValue(
                 dataFetcherResult, object : TypeReference<Map<String, Any>>() {
-
             })
         } catch (e: Exception) {
             throw CoercingSerializeException("Could not serialize value", e)
         }
-
     }
 
     @Throws(CoercingParseValueException::class)
@@ -49,7 +45,6 @@ class MonetaryAmountScalar(objectMapper: ObjectMapper) : GraphQLScalarType("Mone
         } catch (e: Exception) {
             throw CoercingParseValueException("Could not parse value", e)
         }
-
     }
 
     @Throws(CoercingParseLiteralException::class)
@@ -70,6 +65,5 @@ class MonetaryAmountScalar(objectMapper: ObjectMapper) : GraphQLScalarType("Mone
         } catch (e: Exception) {
             throw CoercingParseValueException("Could not parse value", e)
         }
-
     }
 })

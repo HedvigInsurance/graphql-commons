@@ -1,12 +1,12 @@
 package com.hedvig.scalars
 
+import graphql.schema.Coercing
 import graphql.schema.CoercingParseLiteralException
-import java.time.LocalTime
 import graphql.schema.CoercingParseValueException
 import graphql.schema.CoercingSerializeException
-import graphql.schema.Coercing
-import java.time.format.DateTimeFormatter
 import graphql.schema.GraphQLScalarType
+import java.time.LocalTime
+import java.time.format.DateTimeFormatter
 import org.springframework.stereotype.Component
 
 @Component
@@ -27,7 +27,6 @@ class LocalTimeScalar : GraphQLScalarType("LocalTime", "A string representation 
         } catch (e: Exception) {
             throw CoercingParseValueException("Could not parse value as a Local Time", e)
         }
-
     }
 
     @Throws(CoercingParseLiteralException::class)
@@ -39,7 +38,6 @@ class LocalTimeScalar : GraphQLScalarType("LocalTime", "A string representation 
         } catch (e: Exception) {
             throw CoercingParseLiteralException("Could parse literal as Local Time", e)
         }
-
     }
 }) {
     companion object {

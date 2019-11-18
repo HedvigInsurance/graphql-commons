@@ -6,8 +6,8 @@ import graphql.schema.CoercingParseLiteralException
 import graphql.schema.CoercingParseValueException
 import graphql.schema.CoercingSerializeException
 import graphql.schema.GraphQLScalarType
-import org.springframework.stereotype.Component
 import java.time.LocalDate
+import org.springframework.stereotype.Component
 
 @Component
 class LocalDateScalar : GraphQLScalarType("LocalDate", "A string representation of `java.time.LocalDate`", object : Coercing<LocalDate, String> {
@@ -34,7 +34,6 @@ class LocalDateScalar : GraphQLScalarType("LocalDate", "A string representation 
         } catch (e: Exception) {
             throw CoercingParseValueException("Could not parse value", e)
         }
-
     }
 
     @Throws(CoercingParseLiteralException::class)
@@ -44,6 +43,5 @@ class LocalDateScalar : GraphQLScalarType("LocalDate", "A string representation 
         } catch (e: Exception) {
             throw CoercingParseLiteralException("Could not parse literal", e)
         }
-
     }
 })

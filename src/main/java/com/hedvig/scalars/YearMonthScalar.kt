@@ -35,7 +35,6 @@ class YearMonthScalar : GraphQLScalarType("YearMonth", "A string-representation 
         } catch (e: Exception) {
             throw CoercingParseValueException("Could not parse value", e)
         }
-
     }
 
     @Throws(CoercingParseLiteralException::class)
@@ -45,6 +44,5 @@ class YearMonthScalar : GraphQLScalarType("YearMonth", "A string-representation 
         } catch (e: Exception) {
             throw CoercingParseLiteralException("Could not parse literal", e)
         }
-
     }
 })

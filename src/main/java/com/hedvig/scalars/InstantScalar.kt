@@ -1,14 +1,13 @@
 package com.hedvig.scalars
 
 import com.fasterxml.jackson.databind.ObjectMapper
+import graphql.schema.Coercing
 import graphql.schema.CoercingParseLiteralException
-import java.time.Instant
 import graphql.schema.CoercingParseValueException
 import graphql.schema.CoercingSerializeException
-import graphql.schema.Coercing
 import graphql.schema.GraphQLScalarType
+import java.time.Instant
 import org.springframework.stereotype.Component
-
 
 @Component
 class InstantScalar(objectMapper: ObjectMapper) : GraphQLScalarType("Instant", "An epoch representation of a `java.time.instant`", object : Coercing<Instant, String> {
@@ -19,7 +18,6 @@ class InstantScalar(objectMapper: ObjectMapper) : GraphQLScalarType("Instant", "
         } catch (e: Exception) {
             throw CoercingSerializeException("Unable to serialize value", e)
         }
-
     }
 
     @Throws(CoercingParseValueException::class)
@@ -29,7 +27,6 @@ class InstantScalar(objectMapper: ObjectMapper) : GraphQLScalarType("Instant", "
         } catch (e: Exception) {
             throw CoercingParseValueException("Could not parse value", e)
         }
-
     }
 
     @Throws(CoercingParseLiteralException::class)
@@ -39,6 +36,5 @@ class InstantScalar(objectMapper: ObjectMapper) : GraphQLScalarType("Instant", "
         } catch (e: Exception) {
             throw CoercingParseLiteralException("Could not parse literal", e)
         }
-
     }
 })
