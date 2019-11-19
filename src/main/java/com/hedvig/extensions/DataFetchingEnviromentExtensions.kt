@@ -10,5 +10,8 @@ fun DataFetchingEnvironment.getToken() =
     this.getContext<GraphQLServletContext?>()?.httpServletRequest?.getHeader(HEDVIG_TOKEN)
         ?: throw NullPointerException("GraphQLContext was null when trying to get $HEDVIG_TOKEN!")
 
+fun DataFetchingEnvironment.getTokenOrNull() =
+    this.getContext<GraphQLServletContext?>()?.httpServletRequest?.getHeader(HEDVIG_TOKEN)
+
 fun DataFetchingEnvironment.getAcceptLanguage() =
     this.getContext<GraphQLServletContext?>()?.httpServletRequest?.getHeader(ACCEPT_LANGUAGE)
