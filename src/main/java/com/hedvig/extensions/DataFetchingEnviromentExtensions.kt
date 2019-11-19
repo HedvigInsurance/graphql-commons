@@ -12,4 +12,3 @@ fun DataFetchingEnvironment.getToken() =
 
 fun DataFetchingEnvironment.getAcceptLanguage() =
     this.getContext<GraphQLServletContext?>()?.httpServletRequest?.getHeader(ACCEPT_LANGUAGE)
-
