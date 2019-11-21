@@ -1,4 +1,4 @@
-package com.hedvig.extensions
+package com.hedvig.graphql.commons.extensions
 
 import graphql.schema.DataFetchingEnvironment
 import graphql.servlet.context.GraphQLServletContext

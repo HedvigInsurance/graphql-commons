@@ -1,4 +1,4 @@
-package com.hedvig.scalars
+package com.hedvig.graphql.commons.scalars
 
 import graphql.language.StringValue
 import graphql.schema.Coercing

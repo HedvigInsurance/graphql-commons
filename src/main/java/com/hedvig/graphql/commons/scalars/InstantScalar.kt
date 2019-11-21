@@ -1,4 +1,4 @@
-package com.hedvig.scalars
+package com.hedvig.graphql.commons.scalars
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import graphql.schema.Coercing

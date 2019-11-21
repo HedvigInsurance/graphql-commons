@@ -1,4 +1,4 @@
-package com.hedvig.scalars
+package com.hedvig.graphql.commons.scalars
 
 import graphql.schema.Coercing
 import graphql.schema.CoercingParseLiteralException

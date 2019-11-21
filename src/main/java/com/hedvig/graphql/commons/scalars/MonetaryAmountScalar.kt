@@ -1,4 +1,4 @@
-package com.hedvig.scalars
+package com.hedvig.graphql.commons.scalars
 
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper

@@ -1,4 +1,4 @@
-package com.hedvig.type
+package com.hedvig.graphql.commons.type
 
 import java.math.BigDecimal
 import java.math.RoundingMode
