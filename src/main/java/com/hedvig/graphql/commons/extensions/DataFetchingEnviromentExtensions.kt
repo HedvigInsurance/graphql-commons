@@ -8,7 +8,7 @@ private const val ACCEPT_LANGUAGE: String = "Accept-Language"
 
 fun DataFetchingEnvironment.getToken() =
     this.getContext<GraphQLServletContext?>()?.httpServletRequest?.getHeader(HEDVIG_TOKEN)
-        ?: throw NullPointerException("GraphQLContext was null when trying to get $HEDVIG_TOKEN!")
+        ?: throw NullPointerException("$HEDVIG_TOKEN is missing!")
 
 fun DataFetchingEnvironment.getTokenOrNull() =
     this.getContext<GraphQLServletContext?>()?.httpServletRequest?.getHeader(HEDVIG_TOKEN)
