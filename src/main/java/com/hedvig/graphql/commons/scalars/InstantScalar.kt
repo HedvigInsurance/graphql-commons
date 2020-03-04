@@ -10,7 +10,7 @@ import java.time.Instant
 import org.springframework.stereotype.Component
 
 @Component
-class InstantScalar(objectMapper: ObjectMapper) : GraphQLScalarType("Instant", "An epoch representation of a `java.time.instant`", object : Coercing<Instant, String> {
+class InstantScalar(objectMapper: ObjectMapper) : GraphQLScalarType("Instant", "An ISO-8601 String representation of a `java.time.Instant`, e.g. 2019-07-03T19:07:38.494081Z", object : Coercing<Instant, String> {
     @Throws(CoercingSerializeException::class)
     override fun serialize(dataFetcherResult: Any): String {
         try {
