@@ -5,8 +5,9 @@ import graphql.schema.*
 import org.springframework.stereotype.Component
 import java.net.URL
 
+
 @Component
-class URLScalar : GraphQLScalarType("URL", "A string representation of `java.net.URL`", object : Coercing<URL, String> {
+class URLScalar : GraphQLScalarType("URL", "A string representation of a url", object : Coercing<String, String> {
 
   @Throws(CoercingSerializeException::class)
   override fun serialize(dataFetcherResult: Any?): String? {
@@ -14,28 +15,28 @@ class URLScalar : GraphQLScalarType("URL", "A string representation of `java.net
       return null
     }
 
-    if (dataFetcherResult !is URL) {
+    if (dataFetcherResult !is String) {
       throw CoercingSerializeException(
           String.format("dataFetcherResult is of wrong type: Expected %s, got %s",
-              URL::class.java.toString(), dataFetcherResult.javaClass.toString()))
+              String::class.java.toString(), dataFetcherResult.javaClass.toString()))
     }
 
-    return dataFetcherResult.toString()
+    return dataFetcherResult
   }
 
   @Throws(CoercingParseValueException::class)
-  override fun parseValue(input: Any): URL {
+  override fun parseValue(input: Any): String {
     try {
-      return URL(input as String)
+      return input as String
     } catch (e: Exception) {
       throw CoercingParseValueException("Could not parse value", e)
     }
   }
 
   @Throws(CoercingParseLiteralException::class)
-  override fun parseLiteral(input: Any): URL {
+  override fun parseLiteral(input: Any): String {
     try {
-      return URL((input as StringValue).value)
+      return (input as StringValue).value
     } catch (e: Exception) {
       throw CoercingParseLiteralException("Could not parse literal", e)
     }
